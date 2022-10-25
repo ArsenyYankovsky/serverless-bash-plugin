@@ -1,0 +1,4 @@
+.idea/
+node_modules/
+example/.serverless
+example/node_modules

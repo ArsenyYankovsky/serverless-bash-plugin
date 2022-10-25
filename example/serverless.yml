@@ -1,0 +1,36 @@
+service: sls-bash-example
+
+provider:
+  name: aws
+  region: eu-west-1
+  lambdaHashingVersion: 20201221
+  memorySize: 256
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:*"
+      Resource:
+        - "*"
+
+plugins:
+  - serverless-bash-plugin
+
+package:
+  individually: true
+
+functions:
+  echo:
+    handler: src/echo.sh
+    runtime: provided.al2
+
+  s3-access:
+    handler: src/s3-access.sh
+    runtime: provided.al2
+    memorySize: 1024
+    layers:
+      - !Ref AwsCliLambdaLayer
+
+layers:
+  awsCli:
+    package:
+      artifact: aws-cli/awscliv2.zip

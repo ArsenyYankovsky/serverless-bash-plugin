@@ -1,0 +1,11 @@
+{
+  "name": "serverless-bash-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Arseny Yankovski",
+  "devDependencies": {
+    "serverless": "^3.23.0",
+    "serverless-bash-plugin": "1.0.0"
+  }
+}

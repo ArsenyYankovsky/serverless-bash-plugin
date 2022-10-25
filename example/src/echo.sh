@@ -1,0 +1,3 @@
+handler () {
+  response=$1
+}
